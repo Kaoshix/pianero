@@ -1,0 +1,327 @@
+@keyframes go-down {
+    
+    0% {
+        transform: translateY(-60px);
+    }
+    50% {
+        transform: translateY(calc(90dvh - (var(--noteHeight) / 2) - (var(--receptacleHeight) / 2)));
+    }
+    100% {
+        transform: translateY(calc((90dvh - (var(--noteHeight) / 2) - (var(--receptacleHeight) / 2)) * 2));
+    }
+}
+
+@keyframes fadeIn {
+    
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInHalf {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes fragment-left-break {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-40%, -200%) rotate(-180deg);
+        opacity: 0;
+    }
+}
+
+@keyframes fragment-right-break {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(40%, -200%) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+:root {
+    --contentWidth : 1100px;
+    --fontFamily: 'Roboto', sans-serif;
+    --noteWidth: 25px;
+    --noteHeight: 60px;
+    --receptacleWidth: 3em;
+    --receptacleHeight: 12em;
+    --blue: #34A854;
+    --red: #EA4436;
+    --blue: #1B73E8;
+    --yellow: #FBBD04;
+    --playBackground: linear-gradient(to bottom right,rgba(0,0,0,0.3),rgba(0,0,0,0)),url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/187/vwood.png);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    overflow: hidden;
+    background:#222
+}
+
+.content {
+    font-family: var(--fontFamily);
+    width: var(--contentWidth);
+    height: 90dvh;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.notes-container {
+    display: grid;
+    grid-template-columns: repeat(17, 1fr);
+    height: 100%;
+    width: fit-content;
+    padding: 0 30px;
+    border-radius: 0 0 1em 1em;
+    position: relative;
+}
+
+.notes-mini {
+    height: var(--noteHeight);
+    width: var(--noteWidth);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--blue);
+    position: absolute;
+    top: 0;
+    z-index: 3;
+}
+
+.note-animate {
+    animation: go-down 4s linear forwards,  fadeIn 400ms linear forwards;
+}
+
+.fragment {
+    position: absolute;
+    width: 50%;
+    height: 25%;
+    background-color: var(--blue);
+}
+
+.fragment-1 {
+    border-radius: 5px 0 0 0;
+    left: 0;
+    top: 0;
+}
+
+.fragment-2 {
+    border-radius: 0 5px 0 0;
+    right: 0;
+    top: 0;
+}
+
+.fragment-3 {
+    border-radius: 0;
+    left: 0;
+    top: 25%;
+}
+
+.fragment-4 {
+    border-radius: 0;
+    right: 0;
+    top: 25%;
+}
+
+.fragment-5 {
+    border-radius: 0;
+    left: 0;
+    top: 50%;
+}
+
+.fragment-6 {
+    border-radius: 0;
+    right: 0;
+    top: 50%;
+}
+
+.fragment-7 {
+    border-radius: 0 0 0 5px;
+    left: 0;
+    bottom: 0;
+}
+
+.fragment-8 {
+    border-radius: 0 0 5px 0;
+    right: 0;
+    bottom: 0;
+}
+
+.receptacle {
+    height: var(--receptacleHeight);
+    width: var(--receptacleWidth);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    place-self: self-end;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    font-weight: 700;
+    font-size: 20px;
+    border-left: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
+    border-radius: 0 0 5px 5px;
+    box-shadow: -1px 0 0 rgba(255,255,255,0.8) inset,0 0 5px #ccc inset,0 0 3px rgba(0,0,0,0.2);
+    background: linear-gradient(to bottom,#eee 0%,#fff 100%);
+}
+
+.receptacle span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(var(--noteHeight) + 50px);
+    width: var(--noteWidth);
+    border: 1px solid #202020;
+    border-radius: 5px;
+    padding: 0 20px;
+}
+
+.receptacle-empty {
+    height: var(--receptacleHeight);
+    width: var(--receptacleWidth);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    place-self: self-end;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    font-weight: 700;
+    font-size: 20px;
+    border-left: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
+    border-radius: 0 0 5px 5px;
+    box-shadow: -1px 0 0 rgba(255,255,255,0.8) inset,0 0 5px #ccc inset,0 0 3px rgba(0,0,0,0.2);
+    background: linear-gradient(to bottom,#eee 0%,#fff 100%);
+    opacity: 0.4;
+}
+
+.receptacle-black {
+    height: 6em;
+    width: 1.5em;
+    z-index: 4;
+    border: 1px solid #000;
+    border-radius: 0 0 3px 3px;
+    box-shadow: -1px -1px 2px rgba(255,255,255,0.2) inset,0 -5px 2px 3px rgba(0,0,0,0.6) inset,0 2px 4px rgba(0,0,0,0.5);
+    background: linear-gradient(45deg,#222 0%,#555 100%);
+    position: absolute;
+    bottom: 145px;
+}
+
+.black-1 {
+    left: 78px;
+    opacity: 0.4;
+}
+
+.black-2 {
+    left: 138px;
+}
+
+.black-3 {
+    left: 198px;
+}
+
+.black-4 {
+    left: 258px;
+}
+
+.black-5 {
+    left: 318px;
+}
+
+.black-6 {
+    left: 378px;
+}
+
+.black-7 {
+    left: 438px;
+    opacity: 0.4;
+}
+
+.black-8 {
+    left: 498px;
+    opacity: 0.4;
+}
+
+.black-9 {
+    left: 558px;
+    opacity: 0.4;
+}
+
+.black-10 {
+    left: 618px;
+    opacity: 0.4;
+}
+
+.black-11 {
+    left: 678px;
+}
+
+.black-12 {
+    left: 738px;
+}
+
+.black-13 {
+    left: 798px;
+}
+
+.black-14 {
+    left: 858px;
+}
+
+.black-15 {
+    left: 918px;
+}
+
+.black-16 {
+    left: 978px;
+    opacity: 0.4;
+}
+
+.receptacle--active {
+    border-top: 1px solid #777;
+    border-left: 1px solid #999;
+    border-bottom: 1px solid #999;
+    box-shadow: 2px 0 3px rgba(0,0,0,0.1) inset,-5px 5px 20px rgba(0,0,0,0.2) inset,0 0 3px rgba(0,0,0,0.2);
+    background: linear-gradient(to bottom,#fff 0%,#e9e9e9 100%)
+}
+
+.buttons-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.start-button {
+    all: unset;
+    padding: 5px 20px;
+    border: 2px solid white;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
