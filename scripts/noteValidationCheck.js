@@ -1,6 +1,12 @@
+import { addTextValidation } from "./addTextValidation.js";
 import { animateFragments } from "./animateFragments.js";
+import { countPoints } from "./countPoints.js";
 
-const noteValidationCheck = (receptacle, e, receptacleValidationPositionTop, receptacleValidationPositionBottom) => {
+const noteValidationCheck = (receptacle, e, receptacleValidationPositionTop, receptacleValidationPositionBottom, score, textScoreLanding) => {
+    const perfect = 200;
+    const great = 100;
+    const miss = 0;
+    
     if (e.key === receptacle.dataset.key) {
 
         const notesMini = Array.from(document.querySelectorAll(`.note-mini--${receptacle.id}`));
@@ -26,20 +32,27 @@ const noteValidationCheck = (receptacle, e, receptacleValidationPositionTop, rec
                 return;
             }
 
+            // Miss
             if (notePositionBottom > (receptacleValidationPositionTop - 120) && notePositionBottom < receptacleValidationPositionTop) {
                 note.remove();
-                console.log('lose');
+                countPoints(score, miss);
+                addTextValidation('miss', textScoreLanding);
                 return;
             } 
 
+            // Perfect
             if (notePositionTop > receptacleValidationPositionTop && notePositionBottom < receptacleValidationPositionBottom) {
-                
                 animateFragments(note, notePositionTop);
+                countPoints(score, perfect);
+                addTextValidation('perfect', textScoreLanding);
                 return;
             }
             
+            // Great
             if (notePositionBottom > receptacleValidationPositionTop || (notePositionTop < receptacleValidationPositionBottom && notePositionBottom > receptacleValidationPositionBottom)) {
                 animateFragments(note, notePositionTop);
+                countPoints(score, great);
+                addTextValidation('great', textScoreLanding);
                 return;
             }
         })

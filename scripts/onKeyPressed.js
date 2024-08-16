@@ -12,10 +12,12 @@ const onKeyPressed = () => {
         const receptacleValidation = receptacle.querySelector('span');
         const receptacleValidationPositionTop = receptacleValidation.getBoundingClientRect().top;
         const receptacleValidationPositionBottom = receptacleValidation.getBoundingClientRect().bottom;
+        const score = document.querySelector('.score');
+        const textScoreLanding = document.querySelector('.text-score-landing');
 
         document.addEventListener('keydown', function(e) {
             if (!e.repeat) {
-                noteValidationCheck(receptacle, e, receptacleValidationPositionTop, receptacleValidationPositionBottom);
+                noteValidationCheck(receptacle, e, receptacleValidationPositionTop, receptacleValidationPositionBottom, score, textScoreLanding);
             }
         })
     })
