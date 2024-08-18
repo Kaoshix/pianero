@@ -10,25 +10,15 @@
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
-    <div class="content">
+    <div class="play-content">
         <div class="notes-container">
             <div class="receptacle-empty" style="border-radius:5px 0 5px 5px;"></div>
             <div class="receptacle-empty"></div>
 
-
-            <div class="receptacle" id="l1" data-key="w">
-                <span>W</span>
-            </div>
-            <div class="receptacle" id="l2" data-key="x">
-                <span>X</span>
-            </div>
-            <div class="receptacle" id="l3" data-key="c">
-                <span>C</span>
-            </div>
-            <div class="receptacle" id="l4" data-key="v">
-                <span>V</span>
-            </div>
-
+            <div class="receptacle" id="l1" data-key="w"><span>W</span></div>
+            <div class="receptacle" id="l2" data-key="x"><span>X</span></div>
+            <div class="receptacle" id="l3" data-key="c"><span>C</span></div>
+            <div class="receptacle" id="l4" data-key="v"><span>V</span></div>
 
             <div class="receptacle-empty"></div>
             <div class="receptacle-empty"></div>
@@ -36,24 +26,13 @@
             <div class="receptacle-empty"></div>
             <div class="receptacle-empty"></div>
 
-
-            <div class="receptacle" id="r1" data-key=",">
-                <span>,</span>
-            </div>
-            <div class="receptacle" id="r2" data-key=";">
-                <span>;</span>
-            </div>
-            <div class="receptacle" id="r3" data-key=":">
-                <span>:</span>
-            </div>
-            <div class="receptacle" id="r4" data-key="=">
-                <span>=</span>
-            </div>
-
+            <div class="receptacle" id="r1" data-key=","><span>,</span></div>
+            <div class="receptacle" id="r2" data-key=";"><span>;</span></div>
+            <div class="receptacle" id="r3" data-key=":"><span>:</span></div>
+            <div class="receptacle" id="r4" data-key="="><span>=</span></div>
             
             <div class="receptacle-empty"></div>
             <div class="receptacle-empty" style="border-radius:0 5px 5px 5px;"></div>
-
 
             <div class="receptacle-black black-1"></div>
             <div class="receptacle-black black-2"></div>
@@ -71,13 +50,6 @@
             <div class="receptacle-black black-14"></div>
             <div class="receptacle-black black-15"></div>
             <div class="receptacle-black black-16"></div>
-
-        </div>
-
-
-        <div class="buttons-container">
-            <button data-songname="au-clair-de-la-lune" class="start-button">Au clair de la lune</button>
-            <button data-songname="histoire-des-etoiles-super-mario-galaxy" class="start-button">Histoire des étoiles <br />Super Mario Galaxy</button>
         </div>
 
         <div class="points-container">
@@ -86,7 +58,14 @@
         </div>
 
         <div class="text-score-landing"></div>
+    </div>
 
+
+    <div class="song-select-window">
+        <div class="song-select-container">
+            <button data-songname="au-clair-de-la-lune" class="start-button">Au clair de la lune</button>
+            <button data-songname="histoire-des-etoiles-super-mario-galaxy" class="start-button">Histoire des étoiles - Super Mario Galaxy</button>
+        </div>
     </div>
     <script type="module" src="./scripts/main.js"></script>
 </body>
