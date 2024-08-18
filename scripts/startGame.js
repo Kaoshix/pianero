@@ -1,21 +1,17 @@
 import { animateNotes } from "./animateNotes.js";
 import { fetchCSV } from "./fetchCSV.js";
-import { playMusic } from "./playMusic.js";
+import { playSong } from "./playSong.js";
 import { onKeyPressed } from "./onKeyPressed.js";
-import { addBackgroundVideo } from "./addBackgroundVideo.js";
+import { showPlayBoard } from "./showPlayBoard.js";
 
-const startGame = (songName) => {
+const startGame = (song) => {
 
-    fetchCSV(songName).then(notes => {
-        playMusic(songName);
-        addBackgroundVideo(songName);
+    fetchCSV(song).then(notes => {
+        playSong(song);
+        showPlayBoard(song);
         animateNotes(notes);
-        const playContentWindow = document.querySelector('.play-content-window');
-        playContentWindow.style.display = 'block';
-        playContentWindow.style.animation = 'fadeIn 2s forwards';
+        onKeyPressed();
     })
-
-    onKeyPressed();
 }
 
 export { startGame };

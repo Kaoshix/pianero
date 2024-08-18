@@ -58,7 +58,7 @@ const animateNotes = (notes) => {
                     newElement.remove();
                 }, 3000);
 
-            }, (note.Time - 2) * 1000);
+            }, (note.Time - 2) * 1000 + 400);
         })
 
     }

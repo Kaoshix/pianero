@@ -1,6 +1,12 @@
-const addBackgroundVideo = (songName) => {
+const showPlayBoard = (song) => {
+
+    const playContentWindow = document.querySelector('.play-content-window');
+
+    playContentWindow.style.display = 'block';
+    playContentWindow.style.animation = 'fadeIn 2s forwards';
+
     const video = document.createElement("video");
-    video.src = `./assets/videos/${songName}.mp4`;
+    video.src = `./assets/videos/${song}.mp4`;
     video.autoplay = true;
     video.loop = true;
     video.muted = true;
@@ -15,4 +21,4 @@ const addBackgroundVideo = (songName) => {
     document.body.appendChild(video);
 }
 
-export { addBackgroundVideo };
+export { showPlayBoard };

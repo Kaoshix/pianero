@@ -2,7 +2,7 @@ import { addTextValidation } from "./addTextValidation.js";
 import { animateFragments } from "./animateFragments.js";
 import { countPoints } from "./countPoints.js";
 
-const noteValidationCheck = (receptacle, e, receptacleValidationPositionTop, receptacleValidationPositionBottom, score, textScoreLanding) => {
+const noteValidationCheck = (receptacle, e, validationAreaTop, validationAreaBottom, score, textScoreLanding) => {
     const perfect = 200;
     const great = 100;
     const miss = 0;
@@ -17,7 +17,7 @@ const noteValidationCheck = (receptacle, e, receptacleValidationPositionTop, rec
         notesMini.forEach(note => {
             const notePositionTop = note.getBoundingClientRect().top;
 
-            if (notePositionTop > receptacleValidationPositionBottom) {
+            if (notePositionTop > validationAreaBottom) {
                 return;
             } else {
                 notesMini.slice(notesMini.indexOf(note));
@@ -28,12 +28,12 @@ const noteValidationCheck = (receptacle, e, receptacleValidationPositionTop, rec
             const notePositionTop = note.getBoundingClientRect().top;
             const notePositionBottom = note.getBoundingClientRect().bottom;
 
-            if (notePositionTop > receptacleValidationPositionBottom) {
+            if (notePositionTop > validationAreaBottom) {
                 return;
             }
 
             // Miss
-            if (notePositionBottom > (receptacleValidationPositionTop - 120) && notePositionBottom < receptacleValidationPositionTop) {
+            if (notePositionBottom > (validationAreaTop - 120) && notePositionBottom < validationAreaTop) {
                 note.remove();
                 countPoints(score, miss);
                 addTextValidation('miss', textScoreLanding);
@@ -41,7 +41,7 @@ const noteValidationCheck = (receptacle, e, receptacleValidationPositionTop, rec
             } 
 
             // Perfect
-            if (notePositionTop > receptacleValidationPositionTop && notePositionBottom < receptacleValidationPositionBottom) {
+            if (notePositionTop > validationAreaTop && notePositionBottom < validationAreaBottom) {
                 animateFragments(note, notePositionTop);
                 countPoints(score, perfect);
                 addTextValidation('perfect', textScoreLanding);
@@ -49,7 +49,7 @@ const noteValidationCheck = (receptacle, e, receptacleValidationPositionTop, rec
             }
             
             // Great
-            if (notePositionBottom > receptacleValidationPositionTop || (notePositionTop < receptacleValidationPositionBottom && notePositionBottom > receptacleValidationPositionBottom)) {
+            if (notePositionBottom > validationAreaTop || (notePositionTop < validationAreaBottom && notePositionBottom > validationAreaBottom)) {
                 animateFragments(note, notePositionTop);
                 countPoints(score, great);
                 addTextValidation('great', textScoreLanding);
