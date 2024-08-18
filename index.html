@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
-    <div class="play-content">
+    <div class="play-content-window">
         <div class="notes-container">
             <div class="receptacle-empty" style="border-radius:5px 0 5px 5px;"></div>
             <div class="receptacle-empty"></div>
@@ -60,11 +60,15 @@
         <div class="text-score-landing"></div>
     </div>
 
-
     <div class="song-select-window">
         <div class="song-select-container">
-            <button data-songname="au-clair-de-la-lune" class="start-button">Au clair de la lune</button>
-            <button data-songname="histoire-des-etoiles-super-mario-galaxy" class="start-button">Histoire des étoiles - Super Mario Galaxy</button>
+            <button data-songname="au-clair-de-la-lune" class="song-button"><span>Au clair de la lune</span></button>
+            <button data-songname="histoire-des-etoiles-super-mario-galaxy" class="song-button"><span>Histoire des étoiles - Super Mario Galaxy</span></button>
+        </div>
+
+        
+        <div class="song-infos">
+            <div class="song-infos__opac-mask"></div>
         </div>
     </div>
     <script type="module" src="./scripts/main.js"></script>

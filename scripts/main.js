@@ -4,19 +4,24 @@ import { startGame } from './startGame.js';
     "use strict";
 
     document.addEventListener("DOMContentLoaded", function() {
-        const buttonStart = document.querySelectorAll('.start-button');
-        const songSelectWindow = document.querySelector('.song-select-window');
+        const songButton = document.querySelectorAll('.song-button');
+        const songInfos = document.querySelector('.song-infos');
 
-        Array.from(buttonStart).forEach(button => {
+        Array.from(songButton).forEach(button => {
             button.addEventListener('mouseover', () => {
                 
-                songSelectWindow.style.background = `url(./assets/images/${button.dataset.songname}.webp) no-repeat`;
-                songSelectWindow.style.backgroundSize = "cover";
-                songSelectWindow.style.backgroundPosition = "center";
+                songInfos.style.background = `url(./assets/images/${button.dataset.songname}.webp) no-repeat`;
+                songInfos.style.backgroundSize = "cover";
+                songInfos.style.backgroundPosition = "left";
+                songInfos.style.animation = "fadeIn 250ms ease-in forwards"
+            })
+
+            button.addEventListener('mouseout', () => {
+                songInfos.style.animation = "fadeOut 150ms ease-in forwards";
             })
             button.addEventListener('click', () => {
                 startGame(button.dataset.songname);
-                songSelectWindow.style.display = 'none';
+                songInfos.style.display = 'none';
             })
         })
     });

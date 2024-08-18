@@ -10,6 +10,9 @@ const startGame = (songName) => {
         playMusic(songName);
         addBackgroundVideo(songName);
         animateNotes(notes);
+        const playContentWindow = document.querySelector('.play-content-window');
+        playContentWindow.style.display = 'block';
+        playContentWindow.style.animation = 'fadeIn 2s forwards';
     })
 
     onKeyPressed();
