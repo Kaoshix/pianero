@@ -1,0 +1,33 @@
+.page-play {
+    position: relative;
+    width: $playContentWidth;
+    height: 100dvh;
+    margin: 0 auto;
+    display: block;
+    opacity: 1;
+
+    &__piano-keys-grid {
+        display: grid;
+        width: fit-content;
+        padding: 0 30px;
+        height: 90%;
+
+        &--white {
+            @extend .page-play__piano-keys-grid;
+            grid-template-columns: repeat(17, 1fr);
+            border-radius: 0 0 1em 1em;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        &--black {
+            @extend .page-play__piano-keys-grid;
+            grid-template-columns: repeat(16, 1fr);
+            gap: calc($pianoKeyWhiteWidth - ($pianoKeyBlackWidth / 2));
+            border-radius: 0 0 1em 1em;
+            position: absolute;
+            top: 0;
+            left: calc($pianoKeyWhiteWidth + ($pianoKeyBlackWidth / 2) - 1px);
+        }
+    }
+}
