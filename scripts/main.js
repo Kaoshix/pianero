@@ -31,28 +31,25 @@ import { startGame } from './startGame.js';
 
             function handleClick() {
                 button.classList.add('song-button--active');
-                    
-                    songButton.forEach(btn => {
-                        if (btn !== button) {
-                            btn.style.animation = "songs-buttons-dissapear-left 500ms ease-in forwards";
-                        } else {
-                            setTimeout(() => {
-                                btn.style.animation = "songs-buttons-dissapear-up 500ms ease-in forwards";
-                            }, 300);
+                songButton.forEach(btn => {
+                    btn.disabled = true;
+                    btn.style.pointerEvents = "none";
+                    if (btn !== button) {
+                        btn.style.animation = "songs-buttons-dissapear-left 500ms ease-in forwards";
+                    } else {
+                        setTimeout(() => {
+                            btn.style.animation = "songs-buttons-dissapear-up 500ms ease-in forwards";
+                        }, 300);
 
-                            setTimeout(() => {
-                                songInfos.style.animation = "fadeOut 300ms ease-in forwards";
-                            }, 1500);
-                        }
-                    })
+                        setTimeout(() => {
+                            songInfos.style.animation = "fadeOut 300ms ease-in forwards";
+                        }, 1500);
+                    }
+                })
                     
                     setTimeout(() => {
                         startGame(song);
                     }, 2500);
-
-                button.removeEventListener('mouseout', handleMouseOut);
-                button.removeEventListener('mouseover', handleMouseOver);
-                button.removeEventListener('click', handleClick);
             }
         })
     });
