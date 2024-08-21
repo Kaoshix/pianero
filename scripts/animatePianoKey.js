@@ -1,14 +1,14 @@
-const animatePianoKey = (receptacle) => {
+const animatePianoKey = (pianoKey) => {
 
     document.addEventListener('keypress', function(e) {
-        if (e.key === receptacle.dataset.key) {
-            receptacle.classList.add('receptacle--active');
+        if (e.key === pianoKey.dataset.key) {
+            pianoKey.classList.add('piano-key--active');
         }
     })
 
     document.addEventListener('keyup', function(e) {
-        if (e.key === receptacle.dataset.key) {
-            receptacle.classList.remove('receptacle--active');
+        if (e.key === pianoKey.dataset.key) {
+            pianoKey.classList.remove('piano-key--active');
         }
     })
 }
