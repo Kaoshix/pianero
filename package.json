@@ -1,0 +1,12 @@
+{
+  "name": "pianero",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watchsass": "sass --watch --style=compressed styles/index.scss styles/index.css"
+  },
+  "author": "",
+  "license": "ISC"
+}

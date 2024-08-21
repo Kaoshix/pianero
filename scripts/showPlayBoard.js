@@ -1,6 +1,6 @@
 const showPlayBoard = (song) => {
 
-    const playContentWindow = document.querySelector('.play-content-window');
+    const playContentWindow = document.querySelector('.page-play');
 
     playContentWindow.style.display = 'block';
     playContentWindow.style.animation = 'fadeIn 2s forwards';

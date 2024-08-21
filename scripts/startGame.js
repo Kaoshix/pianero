@@ -7,8 +7,8 @@ import { showPlayBoard } from "./showPlayBoard.js";
 const startGame = (song) => {
 
     fetchCSV(song).then(notes => {
-        playSong(song);
         showPlayBoard(song);
+        playSong(song);
         animateNotes(notes);
         onKeyPressed();
     })

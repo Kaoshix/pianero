@@ -3,7 +3,7 @@ const animateFragments = (note, notePositionTop) => {
     note.style.animation = 'none';
     note.style.top = notePositionTop + 'px';
 
-    const fragments = Array.from(note.querySelectorAll('.fragment'));
+    const fragments = Array.from(note.querySelectorAll('.note__fragment'));
     fragments.map((fragment, index) => {
         if (index % 2 === 0) {
             fragment.style.animation = 'fragment-left-break 200ms ease forwards';

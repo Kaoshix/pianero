@@ -4,10 +4,10 @@
         transform: translateY(-60px);
     }
     50% {
-        transform: translateY(calc(90dvh - (var(--noteHeight) / 2) - (var(--receptacleHeight) / 2)));
+        transform: translateY(calc(90dvh - ($noteHeight / 2) - ($pianoKeyWhiteHeight / 2)));
     }
     100% {
-        transform: translateY(calc((90dvh - (var(--noteHeight) / 2) - (var(--receptacleHeight) / 2)) * 2));
+        transform: translateY(calc((90dvh - ($noteHeight / 2) - ($pianoKeyWhiteHeight / 2)) * 2));
     }
 }
 

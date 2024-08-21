@@ -2,18 +2,18 @@ import { addTextValidation } from "./addTextValidation.js";
 import { animateFragments } from "./animateFragments.js";
 import { countPoints } from "./countPoints.js";
 
-const noteValidationCheck = (receptacle, e, validationAreaTop, validationAreaBottom, score, textScoreLanding) => {
+const noteValidationCheck = (pianoKey, e, validationAreaTop, validationAreaBottom, score, textScoreLanding) => {
     const perfect = 200;
     const great = 100;
     const miss = 0;
     
-    if (e.key === receptacle.dataset.key) {
+    if (e.key === pianoKey.dataset.key) {
 
-        const notesMini = Array.from(document.querySelectorAll(`.note-mini--${receptacle.id}`));
+        const notesMini = Array.from(document.querySelectorAll(`.note-mini--${pianoKey.id}`));
 
         if (notesMini.length == 0) return;
 
-        // Remove notes that are below the receptacle's validation area
+        // Remove notes that are below the pianoKey's validation area
         notesMini.forEach(note => {
             const notePositionTop = note.getBoundingClientRect().top;
 

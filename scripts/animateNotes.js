@@ -19,11 +19,11 @@ const animateNotes = (notes) => {
 
                 for (let i = 1; i < 9; i++) {
                     const noteFragment = document.createElement('div');
-                    noteFragment.classList.add('fragment', `fragment-${i}`);
+                    noteFragment.classList.add('note__fragment', `note__fragment--${i}`);
                     newElement.appendChild(noteFragment);
                 }
 
-                newElement.classList.add('notes-mini', 'note-animate', `note-mini--${note.Key}`);
+                newElement.classList.add('note', 'note-animate', `note-mini--${note.Key}`);
 
                 switch (note.Key) {
                     case 'l1':

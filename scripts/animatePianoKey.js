@@ -1,4 +1,4 @@
-const animateReceptacle = (receptacle) => {
+const animatePianoKey = (receptacle) => {
 
     document.addEventListener('keypress', function(e) {
         if (e.key === receptacle.dataset.key) {
@@ -13,4 +13,4 @@ const animateReceptacle = (receptacle) => {
     })
 }
 
-export { animateReceptacle };
+export { animatePianoKey };

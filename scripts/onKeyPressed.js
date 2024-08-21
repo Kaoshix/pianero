@@ -1,9 +1,9 @@
-import { animateReceptacle } from "./animateReceptacle.js";
+import { animatePianoKey } from "./animatePianoKey.js";
 import { noteValidationCheck } from "./noteValidationCheck.js";
 
 const onKeyPressed = () => {
 
-    const receptacles = document.querySelectorAll('.receptacle');
+    const pianoKeys = document.querySelectorAll('.piano-key');
     const validationArea = document.querySelector('.validation-area');
     const validationAreaTop = validationArea.getBoundingClientRect().top;
     const validationAreaBottom = validationArea.getBoundingClientRect().bottom;
@@ -11,13 +11,13 @@ const onKeyPressed = () => {
     const score = document.querySelector('.score');
     const textScoreLanding = document.querySelector('.text-score-landing');
 
-    Array.from(receptacles).forEach(receptacle => {
+    Array.from(pianoKeys).forEach(pianoKey => {
 
-        animateReceptacle(receptacle);
+        animatePianoKey(pianoKey);
 
         document.addEventListener('keydown', function(e) {
             if (!e.repeat) {
-                noteValidationCheck(receptacle, e, validationAreaTop, validationAreaBottom, score, textScoreLanding);
+                noteValidationCheck(pianoKey, e, validationAreaTop, validationAreaBottom, score, textScoreLanding);
             }
         })
     })
