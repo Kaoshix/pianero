@@ -8,54 +8,60 @@ const animateNotes = (notes) => {
     const rightHandReceptacleTwo = document.querySelector('#r2');
     const rightHandReceptacleThree = document.querySelector('#r3');
     const rightHandReceptacleFour = document.querySelector('#r4');
+
+    const validationArea = document.querySelector('.page-play__validation-area');
+
+    const middleOfValidationArea = validationArea.getBoundingClientRect().top + validationArea.getBoundingClientRect().height / 2;
+
     
     function animate() {
 
         notes.forEach(note => {
-
+            console.log(middleOfValidationArea);
             // Create a new div element for each note
             setTimeout(() => {
-                const newElement = document.createElement('div');
+                const newNote = document.createElement('div');
 
                 for (let i = 1; i < 9; i++) {
                     const noteFragment = document.createElement('div');
                     noteFragment.classList.add('note__fragment', `note__fragment--${i}`);
-                    newElement.appendChild(noteFragment);
+                    newNote.appendChild(noteFragment);
                 }
 
-                newElement.classList.add('note', 'note-animate', `note-mini--${note.Key}`);
+                newNote.classList.add('note', 'note-animate', `note--${note.Key}`);
+                newNote.style.animation = 'fadeIn 400ms linear forwards, go-down 4s linear forwards';
 
                 switch (note.Key) {
                     case 'l1':
-                        leftHandReceptacleOne.appendChild(newElement);
+                        leftHandReceptacleOne.appendChild(newNote);
                         break;
                     case 'l2':
-                        leftHandReceptacleTwo.appendChild(newElement);
+                        leftHandReceptacleTwo.appendChild(newNote);
                         break;
                     case 'l3':
-                        leftHandReceptacleThree.appendChild(newElement);
+                        leftHandReceptacleThree.appendChild(newNote);
                         break;
                     case 'l4':
-                        leftHandReceptacleFour.appendChild(newElement);
+                        leftHandReceptacleFour.appendChild(newNote);
                         break;
                     case 'r1':
-                        rightHandReceptacleOne.appendChild(newElement);
+                        rightHandReceptacleOne.appendChild(newNote);
                         break;
                     case 'r2':
-                        rightHandReceptacleTwo.appendChild(newElement);
+                        rightHandReceptacleTwo.appendChild(newNote);
                         break;
                     case 'r3':
-                        rightHandReceptacleThree.appendChild(newElement);
+                        rightHandReceptacleThree.appendChild(newNote);
                         break;
                     case 'r4':
-                        rightHandReceptacleFour.appendChild(newElement);
+                        rightHandReceptacleFour.appendChild(newNote);
                         break;
                     default:
                         break;
                 }
 
                 setTimeout(() => {
-                    newElement.remove();
+                    newNote.remove();
                 }, 3000);
 
             }, (note.Time - 2) * 1000 + 400);

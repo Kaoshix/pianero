@@ -4,7 +4,7 @@ import { noteValidationCheck } from "./noteValidationCheck.js";
 const onKeyPressed = () => {
 
     const pianoKeys = document.querySelectorAll('.piano-key');
-    const validationArea = document.querySelector('.validation-area');
+    const validationArea = document.querySelector('.page-play__validation-area');
     const validationAreaTop = validationArea.getBoundingClientRect().top;
     const validationAreaBottom = validationArea.getBoundingClientRect().bottom;
 

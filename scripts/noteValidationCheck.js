@@ -9,7 +9,7 @@ const noteValidationCheck = (pianoKey, e, validationAreaTop, validationAreaBotto
     
     if (e.key === pianoKey.dataset.key) {
 
-        const notesMini = Array.from(document.querySelectorAll(`.note-mini--${pianoKey.id}`));
+        const notesMini = Array.from(document.querySelectorAll(`.note--${pianoKey.id}`));
 
         if (notesMini.length == 0) return;
 

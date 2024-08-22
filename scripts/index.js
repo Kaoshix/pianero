@@ -7,7 +7,8 @@ import { startGame } from './startGame.js';
 
 
         const songButton = Array.from(document.querySelectorAll('.song-button'));
-        const songInfos = document.querySelector('.song-infos');
+        const layerBackgroundImage = document.querySelector('.page-select-song__layer-background-image');
+        const layerOpaqueMask = document.querySelector('.page-select-song__layer-opaque-mask');
 
         songButton.forEach(button => {
             const song = button.dataset.song;
@@ -16,15 +17,16 @@ import { startGame } from './startGame.js';
             button.addEventListener('click', handleClick);
 
             function handleMouseOut() {
-                songInfos.style.animation = "fadeOut 150ms ease-in forwards";
+                layerBackgroundImage.style.animation = "fadeOut 150ms ease-in forwards";
+                layerOpaqueMask.style.animation = "fadeOut 250ms ease-in forwards";
                 button.classList.remove('song-button--active');
             }
 
             function handleMouseOver() {
-                songInfos.style.background = `url(./assets/images/${song}.webp) no-repeat`;
-                songInfos.style.backgroundSize = "cover";
-                songInfos.style.backgroundPosition = "left";
-                songInfos.style.animation = "fadeIn 250ms ease-in forwards";
+                layerBackgroundImage.style.background = `url(./assets/images/${song}.webp) no-repeat`;
+                layerBackgroundImage.style.backgroundSize = "cover";
+                layerBackgroundImage.style.animation = "fadeIn 250ms ease-in forwards";
+                layerOpaqueMask.style.animation = "fadeIn 0ms ease-in forwards";
 
                 button.classList.add('song-button--active');
             }
@@ -42,7 +44,7 @@ import { startGame } from './startGame.js';
                         }, 300);
 
                         setTimeout(() => {
-                            songInfos.style.animation = "fadeOut 300ms ease-in forwards";
+                            layerBackgroundImage.style.animation = "fadeOut 300ms ease-in forwards";
                         }, 1500);
                     }
                 })
