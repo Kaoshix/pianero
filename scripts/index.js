@@ -7,8 +7,8 @@ import { startGame } from './startGame.js';
 
 
         const songButton = Array.from(document.querySelectorAll('.song-button'));
-        const layerBackgroundImage = document.querySelector('.page-select-song__layer-background-image');
-        const layerOpaqueMask = document.querySelector('.page-select-song__layer-opaque-mask');
+        const layerBackgroundImage = document.querySelector('.song-select__layer-background-image');
+        const layerOpaqueMask = document.querySelector('.song-select__layer-opaque-mask');
 
         songButton.forEach(button => {
             const song = button.dataset.song;

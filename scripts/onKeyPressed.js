@@ -9,7 +9,7 @@ const onKeyPressed = () => {
     const validationAreaBottom = validationArea.getBoundingClientRect().bottom;
 
     const score = document.querySelector('.playboard__score');
-    const textScoreLanding = document.querySelector('.text-score-landing');
+    const textScoreLanding = document.querySelector('.playboard__score-location');
 
     Array.from(pianoKeys).forEach(pianoKey => {
 

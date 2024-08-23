@@ -1,7 +1,15 @@
-.page-select-song {
+.song-select {
     width: 100dvw;
     height: 100dvh;
 
+    &__layer-background-image {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
 
     &__layer-opaque-mask {
         width: 100%;
@@ -13,12 +21,17 @@
         z-index: 2;
     }
 
-    &__layer-background-image {
-        width: 100%;
+    &__songs-container {
         height: 100%;
+        width: 100%;
         position: absolute;
         top: 0;
         left: 0;
-        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+        max-width: fit-content;
+        z-index: 3;
     }
 }
