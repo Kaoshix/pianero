@@ -9,7 +9,7 @@ const animateNotes = (notes) => {
     const rightHandReceptacleThree = document.querySelector('#r3');
     const rightHandReceptacleFour = document.querySelector('#r4');
 
-    const validationArea = document.querySelector('.page-play__validation-area');
+    const validationArea = document.querySelector('.playboard__validation-area');
 
     const middleOfValidationArea = validationArea.getBoundingClientRect().top + validationArea.getBoundingClientRect().height / 2;
 

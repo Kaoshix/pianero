@@ -4,11 +4,11 @@ import { noteValidationCheck } from "./noteValidationCheck.js";
 const onKeyPressed = () => {
 
     const pianoKeys = document.querySelectorAll('.piano-key');
-    const validationArea = document.querySelector('.page-play__validation-area');
+    const validationArea = document.querySelector('.playboard__validation-area');
     const validationAreaTop = validationArea.getBoundingClientRect().top;
     const validationAreaBottom = validationArea.getBoundingClientRect().bottom;
 
-    const score = document.querySelector('.score');
+    const score = document.querySelector('.playboard__score');
     const textScoreLanding = document.querySelector('.text-score-landing');
 
     Array.from(pianoKeys).forEach(pianoKey => {

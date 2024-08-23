@@ -1,0 +1,81 @@
+.playboard {
+    position: relative;
+    width: $playContentWidth;
+    height: 100dvh;
+    margin: 0 auto;
+    display: none;
+    opacity: 0;
+
+    &__piano-keys-grid {
+        display: grid;
+        width: fit-content;
+        padding: 0 30px;
+        height: 90%;
+
+        &--white {
+            @extend .playboard__piano-keys-grid;
+            grid-template-columns: repeat(17, 1fr);
+            position: relative;
+            margin: 0 auto;
+        }
+
+        &--black {
+            @extend .playboard__piano-keys-grid;
+            grid-template-columns: repeat(16, 1fr);
+            gap: calc($pianoKeyWhiteWidth  / 2);
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    &__validation-area {
+        width: 100%;
+        height: calc($noteHeight + 40px); 
+        border: 1px solid $tertiary; 
+        opacity: 0.6;
+        border-radius: 5px;
+        z-index: 10;
+        position: absolute; 
+        bottom: calc(10dvh + $pianoKeyWhiteHeight)
+    }
+
+    &__score {
+        position: absolute;
+        bottom: calc(10dvh + $pianoKeyWhiteHeight + $noteHeight + 40px);
+        padding: 20px;
+        color: white;
+        font-size: 20px;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.text-score-landing {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.text-validation--great {
+    background: linear-gradient(179.1deg, rgb(43, 170, 96) 2.3%, rgb(129, 204, 104) 98.3%);
+    background-clip: text;
+    color: transparent;
+}
+
+.text-validation--miss {
+    background: radial-gradient(circle at 81.9% 53.5%, rgb(173, 53, 53) 16.3%, rgb(240, 60, 60) 100.2%);
+    background-clip: text;
+    color: transparent;
+}
+
+.text-validation--perfect {
+    background: linear-gradient( 109.6deg, rgba(156,252,248,1) 11.2%, rgba(110,123,251,1) 91.1% );
+    background-clip: text;
+    color: transparent;
+}

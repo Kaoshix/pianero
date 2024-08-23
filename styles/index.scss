@@ -2,7 +2,7 @@
 @import "./base/reset";
 @import "./config/keyframes";
 
-@import "./pages/page-play";
+@import "./pages/playboard";
 @import "./pages/page-select-song";
 
 @import "./components/note";
@@ -45,41 +45,4 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-.points-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 20px;
-    color: white;
-    font-size: 20px;
-}
-
-.text-score-landing {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 40px;
-    font-weight: 700;
-    text-align: center;
-}
-
-.text-validation--great {
-    background: linear-gradient(179.1deg, rgb(43, 170, 96) 2.3%, rgb(129, 204, 104) 98.3%);
-    background-clip: text;
-    color: transparent;
-}
-
-.text-validation--miss {
-    background: radial-gradient(circle at 81.9% 53.5%, rgb(173, 53, 53) 16.3%, rgb(240, 60, 60) 100.2%);
-    background-clip: text;
-    color: transparent;
-}
-
-.text-validation--perfect {
-    background: linear-gradient( 109.6deg, rgba(156,252,248,1) 11.2%, rgba(110,123,251,1) 91.1% );
-    background-clip: text;
-    color: transparent;
 }
