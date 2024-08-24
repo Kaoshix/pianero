@@ -1,5 +1,5 @@
 import { addTextValidation } from "./addTextValidation.js";
-import { animateFragments } from "./animateFragments.js";
+import { animateParticules } from "./animateParticules.js";
 import { countPoints } from "./countPoints.js";
 
 const noteValidationCheck = (pianoKey, e, validationAreaTop, validationAreaBottom, score, textScoreLanding) => {
@@ -42,15 +42,15 @@ const noteValidationCheck = (pianoKey, e, validationAreaTop, validationAreaBotto
 
             // Perfect
             if (notePositionTop > validationAreaTop && notePositionBottom < validationAreaBottom) {
-                animateFragments(note, notePositionTop);
                 countPoints(score, perfect);
                 addTextValidation('perfect', textScoreLanding);
+                animateParticules(note, notePositionTop);
                 return;
             }
             
             // Great
             if (notePositionBottom > validationAreaTop || (notePositionTop < validationAreaBottom && notePositionBottom > validationAreaBottom)) {
-                animateFragments(note, notePositionTop);
+                animateParticules(note, notePositionTop);
                 countPoints(score, great);
                 addTextValidation('great', textScoreLanding);
                 return;

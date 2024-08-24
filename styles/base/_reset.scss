@@ -13,6 +13,10 @@ html {
     overflow: hidden;
 }
 
+body {
+    transition: background-color 2s;
+}
+
 a {
     text-decoration: none;
     color: inherit;

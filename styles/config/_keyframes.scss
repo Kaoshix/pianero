@@ -3,11 +3,12 @@
     0% {
         transform: translateY(0);
     }
+    
     50% {
-        transform: translateY(calc(90dvh - ($noteHeight / 2) - ($pianoKeyWhiteHeight / 2)));
+        transform: translateY(calc(90dvh - $pianoKeyWhiteHeight - 80px));
     }
     100% {
-        transform: translateY(calc((90dvh - ($noteHeight / 2) - ($pianoKeyWhiteHeight / 2)) * 2));
+        transform: translateY(calc((90dvh - $pianoKeyWhiteHeight - 80px) * 2));
     }
 }
 

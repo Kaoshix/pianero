@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Effet de désintégration</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #333;
+            margin: 0;
+        }
+
+        #square {
+            width: 100px;
+            height: 100px;
+            background-color: #ff6347;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background-color: #ff6347;
+            opacity: 1;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div id="square"></div>
+
+    <script>
+        const square = document.getElementById('square');
+
+        square.addEventListener('click', () => {
+            const particles = 10;  // Nombre de particules
+            for (let i = 0; i < particles; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+
+                // Position initiale de la particule (au centre du carré)
+                const x = square.offsetWidth / 2;
+                const y = square.offsetHeight / 2;
+                particle.style.left = `${x}px`;
+                particle.style.top = `${y}px`;
+
+                // Ajouter la particule au DOM
+                square.appendChild(particle);
+
+                // Calculer la direction aléatoire pour chaque particule
+                const angle = Math.random() * 2 * Math.PI;
+                const radius = Math.random() * square.offsetWidth;
+
+                // Calculer la position finale des particules
+                const finalX = radius * Math.cos(angle);
+                const finalY = radius * Math.sin(angle);
+
+                // Appliquer la transformation aux particules
+                setTimeout(() => {
+                    particle.style.transform = `translate(${finalX}px, ${finalY - 50}px)`;
+                    particle.style.opacity = 0;
+                }, 10);
+            }
+
+            // Supprimer le carré après le clic
+            square.style.backgroundColor = 'transparent';
+
+            // Supprimer les particules après l'animation
+            setTimeout(() => {
+                while (square.firstChild) {
+                    square.removeChild(square.firstChild);
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

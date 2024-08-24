@@ -45,6 +45,7 @@ import { startGame } from './startGame.js';
 
                         setTimeout(() => {
                             layerBackgroundImage.style.animation = "fadeOut 300ms ease-in forwards";
+                            document.body.style.backgroundColor = "black";
                         }, 1500);
                     }
                 })

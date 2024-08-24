@@ -12,12 +12,10 @@ const animateNotes = (notes) => {
     const validationArea = document.querySelector('.playboard__validation-area');
 
     const middleOfValidationArea = validationArea.getBoundingClientRect().top + validationArea.getBoundingClientRect().height / 2;
-
     
     function animate() {
 
         notes.forEach(note => {
-            console.log(middleOfValidationArea);
             // Create a new div element for each note
             setTimeout(() => {
                 const newNote = document.createElement('div');
@@ -64,7 +62,7 @@ const animateNotes = (notes) => {
                     newNote.remove();
                 }, 3000);
 
-            }, (note.Time - 2) * 1000 + 400);
+            }, (note.Time - 2) * 1000);
         })
 
     }
