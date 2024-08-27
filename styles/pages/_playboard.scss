@@ -31,13 +31,15 @@
     }
 
     &__validation-area {
-        width: 100%;
+        width: calc($pianoKeyWhiteWidth * 17);
         height: calc($noteHeight + 40px); 
         border: 1px solid $tertiary; 
         opacity: 0.6;
         border-radius: 5px;
         z-index: 10;
         position: absolute; 
+        left: 50%;
+        transform: translateX(-50%);
         bottom: calc(10dvh + $pianoKeyWhiteHeight)
     }
 

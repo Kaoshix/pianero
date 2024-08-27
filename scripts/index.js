@@ -52,7 +52,7 @@ import { startGame } from './startGame.js';
                     
                     setTimeout(() => {
                         startGame(song);
-                    }, 2500);
+                    }, 2000);
             }
         })
     });

@@ -23,39 +23,39 @@ const noteValidationCheck = (pianoKey, e, validationAreaTop, validationAreaBotto
                 notesMini.slice(notesMini.indexOf(note));
             }
         })
+
+        const notePositionTop = notesMini[0].getBoundingClientRect().top;
+        const notePositionBottom = notesMini[0].getBoundingClientRect().bottom;
+        const noteMiddleTop = notePositionTop + (notePositionBottom - notePositionTop) / 2;
+        const noteMiddleLeft = notesMini[0].getBoundingClientRect().left + (notesMini[0].getBoundingClientRect().right - notesMini[0].getBoundingClientRect().left) / 2;
+
+        if (notePositionTop > validationAreaBottom) {
+            return;
+        }
+
+        // Miss
+        if (notePositionBottom > (validationAreaTop - 120) && notePositionBottom < validationAreaTop) {
+            notesMini[0].remove();
+            countPoints(score, miss);
+            addTextValidation('miss', textScoreLanding);
+            return;
+        } 
+
+        // Perfect
+        if (notePositionTop > validationAreaTop && notePositionBottom < validationAreaBottom) {
+            countPoints(score, perfect);
+            addTextValidation('perfect', textScoreLanding);
+            animateParticules(notesMini[0], noteMiddleTop, noteMiddleLeft);
+            return;
+        }
         
-        notesMini.forEach(note => {
-            const notePositionTop = note.getBoundingClientRect().top;
-            const notePositionBottom = note.getBoundingClientRect().bottom;
-
-            if (notePositionTop > validationAreaBottom) {
-                return;
-            }
-
-            // Miss
-            if (notePositionBottom > (validationAreaTop - 120) && notePositionBottom < validationAreaTop) {
-                note.remove();
-                countPoints(score, miss);
-                addTextValidation('miss', textScoreLanding);
-                return;
-            } 
-
-            // Perfect
-            if (notePositionTop > validationAreaTop && notePositionBottom < validationAreaBottom) {
-                countPoints(score, perfect);
-                addTextValidation('perfect', textScoreLanding);
-                animateParticules(note, notePositionTop);
-                return;
-            }
-            
-            // Great
-            if (notePositionBottom > validationAreaTop || (notePositionTop < validationAreaBottom && notePositionBottom > validationAreaBottom)) {
-                animateParticules(note, notePositionTop);
-                countPoints(score, great);
-                addTextValidation('great', textScoreLanding);
-                return;
-            }
-        })
+        // Great
+        if (notePositionBottom > validationAreaTop || (notePositionTop < validationAreaBottom && notePositionBottom > validationAreaBottom)) {
+            animateParticules(notesMini[0], noteMiddleTop, noteMiddleLeft);
+            countPoints(score, great);
+            addTextValidation('great', textScoreLanding);
+            return;
+        }
     }
 }
 

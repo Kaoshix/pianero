@@ -15,19 +15,18 @@ const animateNotes = (notes) => {
     
     function animate() {
 
-        notes.forEach(note => {
+        notes.forEach((note, index) => {
             // Create a new div element for each note
             setTimeout(() => {
                 const newNote = document.createElement('div');
-
-                for (let i = 1; i < 9; i++) {
-                    const noteFragment = document.createElement('div');
-                    noteFragment.classList.add('note__fragment', `note__fragment--${i}`);
-                    newNote.appendChild(noteFragment);
-                }
-
                 newNote.classList.add('note', 'note-animate', `note--${note.Key}`);
                 newNote.style.animation = 'fadeIn 400ms linear forwards, go-down 4s linear forwards';
+
+                if (index !== 0) {
+                    if (notes[index].Time === notes[index + 1].Time || notes[index].Time === notes[index - 1].Time) {
+                        newNote.classList.add('note__twin');
+                    }
+                }
 
                 switch (note.Key) {
                     case 'l1':

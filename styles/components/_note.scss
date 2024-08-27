@@ -5,65 +5,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $tertiary;
+    background: rgb(0,0,0);background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(212,175,55,1) 35%, rgba(202,212,55,1) 50%, rgba(212,175,55,1) 65%, rgba(0,0,0,0) 100%);
     position: absolute;
     top: 0;
     z-index: 1;
-
-    // &__fragment {
-    //     position: absolute;
-    //     width: 50%;
-    //     height: 25%;
-    //     background-color: $tertiary;
-
-    //     &--1 {
-    //         border-radius: 5px 0 0 0;
-    //         left: 0;
-    //         top: 0;
-    //     }
-        
-    //     &--2 {
-    //         border-radius: 0 5px 0 0;
-    //         right: 0;
-    //         top: 0;
-    //     }
-        
-    //     &--3 {
-    //         border-radius: 0;
-    //         left: 0;
-    //         top: 25%;
-    //     }
-        
-    //     &--4 {
-    //         border-radius: 0;
-    //         right: 0;
-    //         top: 25%;
-    //     }
-        
-    //     &--5 {
-    //         border-radius: 0;
-    //         left: 0;
-    //         top: 50%;
-    //     }
-        
-    //     &--6 {
-    //         border-radius: 0;
-    //         right: 0;
-    //         top: 50%;
-    //     }
-        
-    //     &--7 {
-    //         border-radius: 0 0 0 5px;
-    //         left: 0;
-    //         bottom: 0;
-    //     }
-        
-    //     &--8 {
-    //         border-radius: 0 0 5px 0;
-    //         right: 0;
-    //         bottom: 0;
-    //     }
-    // }
 
     &__particle {
         position: absolute;
@@ -72,6 +17,23 @@
         background-color: $tertiary;
         opacity: 1;
         transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+
+    &__twin {
+        background-color: orangered;
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            border-top: 25px solid orangered;
+            bottom: 50%;
+            left: 50%;
+            transform: translate(-50%, 50%);
+        }
     }
 }
 

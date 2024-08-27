@@ -1,6 +1,7 @@
-const animateParticules = (note, notePositionTop) => {
+const animateParticules = (note, noteMiddleTop, noteMiddleLeft) => {
     note.style.animation = 'none';
-    note.style.top = notePositionTop + 'px';
+    // Supprimer le note après le clic
+    note.remove();
     
     const particles = 100;  // Nombre de particules
     for (let i = 0; i < particles; i++) {
@@ -8,17 +9,15 @@ const animateParticules = (note, notePositionTop) => {
         particle.classList.add('note__particle');
 
         // Position initiale de la particule (au centre du note)
-        const x = note.offsetWidth / 2;
-        const y = note.offsetHeight / 2;
-        particle.style.left = `${x}px`;
-        particle.style.top = `${y}px`;
+        particle.style.left = `${noteMiddleLeft}px`;
+        particle.style.top = `${noteMiddleTop}px`;
 
         // Ajouter la particule au DOM
-        note.appendChild(particle);
+        document.body.appendChild(particle);
 
         // Calculer la direction aléatoire pour chaque particule
         const angle = Math.random() * 2 * Math.PI;
-        const radius = Math.random() * note.offsetHeight;
+        const radius = Math.random() * 50;
 
         // Calculer la position finale des particules
         const finalX = radius * Math.cos(angle);
@@ -30,16 +29,6 @@ const animateParticules = (note, notePositionTop) => {
             particle.style.opacity = 0;
         }, 10);
     }
-
-    // Supprimer le note après le clic
-    note.style.backgroundColor = 'transparent';
-
-    // Supprimer les particules après l'animation
-    setTimeout(() => {
-        while (note.firstChild) {
-            note.removeChild(note.firstChild);
-        }
-    }, 1000);
 }
 
 export { animateParticules };
