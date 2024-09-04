@@ -80,4 +80,28 @@
         background-clip: text;
         color: transparent;
     }
+
+    &__left-hand-halo {
+        position: absolute;
+        bottom: calc(10dvh + $pianoKeyWhiteHeight);
+        left: 25%;
+        transform: translateX(-25%);
+        width: calc($pianoKeyWhiteWidth * 4);
+        height: 20px;
+        background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0.5) 50%, rgba(0,0,0,1) 100%);
+        z-index: 1;
+        display: block;
+    }
+    
+    &__right-hand-halo {
+        position: absolute;
+        bottom: calc(10dvh + $pianoKeyWhiteHeight);
+        right: 25%;
+        transform: translateX(25%);
+        width: calc($pianoKeyWhiteWidth * 4);
+        height: 20px;
+        background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0.5) 50%, rgba(0,0,0,1) 100%);
+        z-index: 1;
+        display: block;
+    }
 }

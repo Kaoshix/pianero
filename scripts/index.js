@@ -5,7 +5,6 @@ import { startGame } from './startGame.js';
 
     document.addEventListener("DOMContentLoaded", function() {
 
-
         const songButton = Array.from(document.querySelectorAll('.song-button'));
         const layerBackgroundImage = document.querySelector('.song-select__layer-background-image');
         const layerOpaqueMask = document.querySelector('.song-select__layer-opaque-mask');
