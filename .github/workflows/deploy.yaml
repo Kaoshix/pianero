@@ -1,0 +1,25 @@
+name: Deploy to Preproduction Server
+
+on:
+  push:
+    branches:
+      - main # Déclenche le déploiement sur push vers la branche main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest # Environnement d'exécution
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2 # Clone le dépôt depuis GitHub
+
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.7.0 # Configurer l'agent SSH
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Test SSH connection
+        run: ssh -o StrictHostKeyChecking=no -p 65002 u397124983@89.116.147.19 'echo "SSH connection successful"'
+
+      - name: Upload files via rsync
+        run: rsync -avzr --delete --progress -e "ssh -p 65002" ./ u397124983@89.116.147.19:domains/pianero.devolha.tech/public_html/
