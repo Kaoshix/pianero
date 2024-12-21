@@ -1,7 +1,7 @@
-import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+import { csv } from "https://cdn.jsdelivr.net/npm/d3-fetch@3/+esm";
 
 const fetchCSV = async (songName) => {
-    const notes = await d3.csv(`../assets/csv/${songName}.csv`);
+    const notes = await csv(`../assets/csv/${songName}.csv`);
     return notes;
 }
 
